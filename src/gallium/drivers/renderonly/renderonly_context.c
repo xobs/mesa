@@ -630,6 +630,17 @@ renderonly_transfer_inline_write(struct pipe_context *pcontext,
 					    layer_stride);
 }
 
+static void
+renderonly_transfer_flush_region(struct pipe_context *pcontext,
+				  struct pipe_transfer *ptransfer,
+				  const struct pipe_box *box)
+{
+	struct renderonly_context *context = to_renderonly_context(pcontext);
+	struct renderonly_transfer *transfer = to_renderonly_transfer(ptransfer);
+
+	context->gpu->transfer_flush_region(context->gpu, transfer->gpu, box);
+}
+
 struct pipe_context *
 renderonly_context_create(struct pipe_screen *pscreen, void *priv, unsigned flags)
 {
@@ -716,6 +727,7 @@ renderonly_context_create(struct pipe_screen *pscreen, void *priv, unsigned flag
 	context->base.transfer_map = renderonly_transfer_map;
 	context->base.transfer_unmap = renderonly_transfer_unmap;
 	context->base.transfer_inline_write = renderonly_transfer_inline_write;
+	context->base.transfer_flush_region = renderonly_transfer_flush_region;
 
 	return &context->base;
 }
