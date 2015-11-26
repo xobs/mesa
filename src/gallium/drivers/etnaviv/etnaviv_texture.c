@@ -194,7 +194,7 @@ static inline void etna_fragtex_set_sampler_views(struct etna_context *ctx, unsi
 }
 
 
-static inline void etna_verttex_set_sampler_views(struct etna_context *ctx, unsigned nr,
+static inline void etna_vertex_set_sampler_views(struct etna_context *ctx, unsigned nr,
                                         struct pipe_sampler_view **views)
 {
     unsigned start = ctx->specs.vertex_sampler_offset;
@@ -218,7 +218,7 @@ static void etna_set_sampler_views(struct pipe_context *pctx, unsigned shader,
         etna_fragtex_set_sampler_views(ctx, num_views, views);
         break;
     case PIPE_SHADER_VERTEX:
-        etna_verttex_set_sampler_views(ctx, num_views, views);
+        etna_vertex_set_sampler_views(ctx, num_views, views);
         break;
     default:
         ;
