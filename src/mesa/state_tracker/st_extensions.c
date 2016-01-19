@@ -469,6 +469,7 @@ void st_init_extensions(struct pipe_screen *screen,
       { o(EXT_blend_equation_separate),      PIPE_CAP_BLEND_EQUATION_SEPARATE          },
       { o(EXT_draw_buffers2),                PIPE_CAP_INDEP_BLEND_ENABLE               },
       { o(EXT_stencil_two_side),             PIPE_CAP_TWO_SIDED_STENCIL                },
+      { o(EXT_texture3D),                    PIPE_CAP_MAX_TEXTURE_3D_LEVELS            },
       { o(EXT_texture_array),                PIPE_CAP_MAX_TEXTURE_ARRAY_LAYERS         },
       { o(EXT_texture_filter_anisotropic),   PIPE_CAP_ANISOTROPIC_FILTER               },
       { o(EXT_texture_mirror_clamp),         PIPE_CAP_TEXTURE_MIRROR_CLAMP             },
@@ -652,6 +653,7 @@ void st_init_extensions(struct pipe_screen *screen,
    extensions->EXT_pixel_buffer_object = GL_TRUE;
    extensions->EXT_point_parameters = GL_TRUE;
    extensions->EXT_provoking_vertex = GL_TRUE;
+   extensions->EXT_texture3D = GL_FALSE;
 
    extensions->EXT_texture_env_dot3 = GL_TRUE;
    extensions->EXT_vertex_array_bgra = GL_TRUE;
