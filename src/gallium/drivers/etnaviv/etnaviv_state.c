@@ -388,6 +388,13 @@ static void etna_set_vertex_buffers( struct pipe_context *pctx,
     util_set_vertex_buffers_mask(so->vb, &so->enabled_mask, vb, start_slot, num_buffers);
     so->count = util_last_bit(so->enabled_mask);
 
+    /* The u_vbuf code gives us more buffers than are actually used.
+     * We check the vertex element configuration against the maximum number
+     * of vertex buffers the hardware supports, so limit it here.
+     */
+    if (so->count > ctx->specs.stream_count)
+        so->count = ctx->specs.stream_count;
+
     for (unsigned idx = start_slot; idx < start_slot + num_buffers; ++idx)
     {
         struct compiled_set_vertex_buffer *cs = &so->cvb[idx];
