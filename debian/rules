@@ -152,6 +152,8 @@ confflags-swx11 = \
 	--with-gallium-drivers= \
 	--enable-xlib-glx \
 	--disable-egl \
+	--disable-gles1 \
+	--disable-gles2 \
 	--disable-shared-glapi \
 	$(buildflags)
 
@@ -162,6 +164,8 @@ confflags-swx11-static = \
 	--enable-xlib-glx \
 	--enable-static \
 	--disable-egl \
+	--disable-gles1 \
+	--disable-gles2 \
 	--disable-shared-glapi \
 	$(buildflags)
 
@@ -171,6 +175,8 @@ confflags-swx11-i386-i686 = \
 	--with-gallium-drivers= \
 	--enable-xlib-glx \
 	--disable-egl \
+	--disable-gles1 \
+	--disable-gles2 \
 	--disable-shared-glapi \
 	--libdir=/usr/lib/$(DEB_HOST_MULTIARCH)/i686/cmov \
 	$(buildflags-i686)
