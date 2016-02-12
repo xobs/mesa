@@ -121,7 +121,7 @@ else
 
 	confflags_DIRECT_RENDERING = --enable-driglx-direct
 	confflags_OPENVG = --enable-openvg --enable-gallium-egl
-	confflags_GALLIUM += --disable-vdpau
+	confflags_GALLIUM += --disable-vdpau --enable-gbm
 endif
 confflags_EGL = --with-egl-platforms="$(EGL_DISPLAYS)"
 confflags_GLES = --enable-gles1 --enable-gles2
