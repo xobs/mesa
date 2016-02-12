@@ -1188,6 +1188,7 @@ static void etna_compile_pass_generate_code(struct etna_compile_data *cd)
                         .src[2] = src[0],
                         });
                 break;
+            case TGSI_OPCODE_TRUNC: /* XXX HAS_SIGN_FLOOR_CEIL */
             case TGSI_OPCODE_FLR: /* XXX HAS_SIGN_FLOOR_CEIL */
                 if (cd->specs->has_sign_floor_ceil)
                 {
