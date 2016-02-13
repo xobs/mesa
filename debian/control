@@ -255,7 +255,6 @@ Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  libudev1 [linux-any],
-Recommends: libegl1-mesa-drivers [!hurd-any]
 Provides: libegl1-x11
 Conflicts: libegl1-x11
 Replaces: libegl1-x11
@@ -290,7 +289,6 @@ Section: libdevel
 Architecture: any
 Depends:
  libegl1-mesa (= ${binary:Version}),
- libegl1-mesa-drivers (= ${binary:Version}) [!hurd-any],
  libdrm-dev (>= 2.4.52) [!hurd-any],
  x11proto-dri2-dev (>= 2.6),
  x11proto-gl-dev (>= 1.4.14),
@@ -318,42 +316,6 @@ Description: free implementation of the EGL API -- development files
  This package provides the development environment for compiling programs
  against the EGL library.
 
-Package: libegl1-mesa-drivers
-Section: libs
-Architecture: linux-any kfreebsd-any
-Depends:
- ${shlibs:Depends},
- ${misc:Depends},
- libegl1-mesa (= ${binary:Version}),
- libglapi-mesa (= ${binary:Version}),
- libwayland-egl1-mesa (= ${binary:Version}) [linux-any],
- libudev1 [linux-any],
-Pre-Depends: ${misc:Pre-Depends}
-Multi-Arch: same
-Description: free implementation of the EGL API -- hardware drivers
- This package contains the EGL native platform graphics interface library.
- EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
- .
- This package contains the drivers required for hardware accelerated rendering
- of EGL-based graphics libraries, such as OpenGL|ES and OpenVG.
-
-Package: libegl1-mesa-drivers-dbg
-Section: debug
-Priority: extra
-Architecture: linux-any kfreebsd-any
-Depends:
- libegl1-mesa-drivers (= ${binary:Version}),
- ${misc:Depends},
-Multi-Arch: same
-Description: free implementation of the EGL API -- driver debugging symbols
- This package contains the EGL native platform graphics interface library.
- EGL provides a platform-agnostic mechanism for creating rendering surfaces
- for use with other graphics libraries, such as OpenGL|ES and OpenVG.
- .
- This package contains the debugging symbols for the drivers required for
- hardware accelerated rendering of EGL-based graphics libraries.
-
 Package: libwayland-egl1-mesa
 Section: libs
 Architecture: linux-any
@@ -361,11 +323,9 @@ Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  libegl1-mesa (= ${binary:Version})
-Recommends: libegl1-mesa-drivers
 Provides: libwayland-egl1
 Conflicts: libwayland-egl1
-Replaces: libwayland-egl1, libegl1-mesa-drivers  (<< 10.1.0-2)
-Breaks: libegl1-mesa-drivers (<< 10.1.0-2)
+Replaces: libwayland-egl1
 Pre-Depends: ${misc:Pre-Depends}
 Multi-Arch: same
 Description: implementation of the Wayland EGL platform -- runtime
