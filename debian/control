@@ -255,7 +255,7 @@ Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  libudev1 [linux-any],
-Provides: libegl1-x11
+Provides: libegl1-x11, libegl1-mesa-drivers
 Conflicts: libegl1-x11
 Replaces: libegl1-x11
 Pre-Depends: ${misc:Pre-Depends}
@@ -635,7 +635,7 @@ Depends:
  ${misc:Depends},
 Conflicts: libgl-dev, libgl1-mesa-dri-dev
 Replaces: libgl-dev, libgl1-mesa-dri-dev
-Provides: libgl-dev, libgl1-mesa-dri-dev
+Provides: libgl-dev, libgl1-mesa-dri-dev, libgl1-mesa-dev
 Multi-Arch: same
 Description: free implementation of the OpenGL API -- GLX development files
  This version of Mesa provides GLX and DRI capabilities: it is capable of
